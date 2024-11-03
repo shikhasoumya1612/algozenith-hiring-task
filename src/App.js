@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Content from "./components/Content/Content";
+import { useState } from "react";
 
 function App() {
+  const [showNavigation, setShowNavigation] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header toggleNavigation={() => setShowNavigation((prev) => !prev)} />
+      <div className="body">
+        {showNavigation && (
+          <div className="sidebar-navigation">
+            <Navbar />
+          </div>
+        )}
+
+        <div className={`content ${!showNavigation ? "full-width" : ""}`}>
+          <Content />
+        </div>
+      </div>
     </div>
   );
 }

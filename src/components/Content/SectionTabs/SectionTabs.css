@@ -1,0 +1,33 @@
+.sections {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  background: linear-gradient(180deg, #eff5ff 0%, rgba(239, 245, 255, 0) 100%);
+  border-radius: 14.67px;
+  padding: 8px 12px;
+}
+
+.section-tab {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 8px 15px;
+  border-radius: 11px;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.section-tab.selected {
+  background-color: white;
+  box-shadow: 0px 3.67px 3.67px 0px #29539b4d;
+  border: 0.92px solid;
+
+  border-image-source: linear-gradient(
+    104.1deg,
+    #05445e -162.17%,
+    #d2e3ff 100%
+  );
+
+  font-weight: 600;
+}

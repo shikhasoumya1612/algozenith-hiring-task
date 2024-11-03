@@ -1,0 +1,25 @@
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0px 12px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.menu-item:hover,
+.menu-item.selected {
+  background-color: #d6f4ff;
+}
+
+.menu-item.selected {
+  font-weight: 600;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
