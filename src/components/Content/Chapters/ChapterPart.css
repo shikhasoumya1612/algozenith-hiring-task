@@ -41,6 +41,13 @@
   align-items: center;
 }
 
+.chapter-part-header-details-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
 .icon-description {
   display: flex;
   flex-direction: row;
@@ -48,7 +55,7 @@
   align-items: center;
 }
 
-.toggle-button {
+.toggle-button svg {
   cursor: pointer;
   width: 16px;
 }
@@ -94,4 +101,23 @@
   flex-direction: row;
   gap: 15px;
   align-items: center;
+}
+
+@media (max-width: 992px) {
+  .chapter-part-header {
+    flex-direction: column;
+    padding: 15px;
+    position: relative;
+  }
+
+  .chapter-part-header-details {
+    justify-content: space-between;
+    gap: unset;
+  }
+
+  .toggle-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
 }

@@ -1,26 +1,17 @@
 import React from "react";
 import "./Header.css";
-import logo from "../../assets/logo.svg";
-import hamburger from "../../assets/hamburger.svg";
-import bellIcon from "../../assets/bell-icon.svg";
 import profile from "../../assets/soumya.jpeg";
+import { BellIcon } from "../../assets/Icons";
+import LogoContainer from "../LogoContainer/LogoContainer";
 
 const Header = ({ toggleNavigation }) => {
   return (
     <div className="header">
-      <div className="logo-div">
-        <img
-          src={hamburger}
-          alt="hamburger"
-          onClick={toggleNavigation}
-          className="hamburger"
-        />
-        <img src={logo} alt="logo" />
-      </div>
+      <LogoContainer toggleNavigation={toggleNavigation} />
 
       <div className="profile-div">
         <div className="notification">
-          <img src={bellIcon} alt="bell-icon" />
+          <BellIcon />
         </div>
         <div className="profile">
           <img src={profile} alt="profile" />

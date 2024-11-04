@@ -1,8 +1,10 @@
 import React from "react";
-import clockBlue from "../../assets/ClockOutline-Blue.svg";
-import clockNormal from "../../assets/ClockOutline.svg";
-import clockGradient from "../../assets/ClockOutline-Gradient.svg";
 import "./Clock.css";
+import {
+  ClockOutline,
+  ClockOutlineBlue,
+  ClockOutlineGradient,
+} from "../../assets/Icons";
 
 function formatDuration(minutes) {
   const totalSeconds = minutes * 60;
@@ -24,14 +26,14 @@ function formatDuration(minutes) {
 
 const Clock = ({ duration, type }) => {
   const icon = {
-    NORMAL: clockNormal,
-    GRADIENT: clockGradient,
-    BLUE: clockBlue,
+    NORMAL: <ClockOutline />,
+    GRADIENT: <ClockOutlineGradient />,
+    BLUE: <ClockOutlineBlue />,
   };
 
   return (
     <div className="clock">
-      <img src={icon[type]} alt="clock" />
+      {icon[type] || <></>}
       <div>{formatDuration(duration)}</div>
     </div>
   );

@@ -13,17 +13,24 @@ const ChapterList = () => {
   return (
     <div className="chapters">
       {chapters.map((chapter) => (
-        <div
-          key={chapter.id}
-          className={`chapter ${chapter.id === 1 ? "selected" : ""}`}
-        >
-          <div className="chapter-text">Chapter{" " + chapter.id}</div>
+        <div key={chapter.id}>
+          <div className={`chapter ${chapter.id === 1 ? "selected" : ""}`}>
+            <div className="chapter-text">Chapter{" " + chapter.id}</div>
 
-          {chapter.id === 1 && (
-            <div className="time">
-              <Clock duration={chapter.duration} type={"BLUE"} />
-            </div>
-          )}
+            {chapter.id === 1 && (
+              <div className="time">
+                <Clock duration={chapter.duration} type={"BLUE"} />
+              </div>
+            )}
+          </div>
+
+          <div
+            className={`condensed-chapter ${
+              chapter.id === 1 ? "selected" : ""
+            }`}
+          >
+            {chapter.id}
+          </div>
         </div>
       ))}
     </div>

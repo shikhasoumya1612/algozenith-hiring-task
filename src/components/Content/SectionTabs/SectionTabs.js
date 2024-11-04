@@ -1,12 +1,10 @@
 import React from "react";
-import mentorSessions from "../../../assets/sections/BriefcaseOutline.svg";
-import learningMaterial from "../../../assets/sections/CalendarOutline.svg";
-
 import "./SectionTabs.css";
+import { BriefcaseOutline, CalendarOutline } from "../../../assets/Icons";
 
 const sections = [
-  { id: 1, title: "Mentor Sessions", logo: mentorSessions },
-  { id: 2, title: "Learning Material", logo: learningMaterial },
+  { id: 1, title: "Mentor Sessions", logo: <BriefcaseOutline /> },
+  { id: 2, title: "Learning Material", logo: <CalendarOutline /> },
 ];
 
 const SectionTabs = () => {
@@ -17,7 +15,7 @@ const SectionTabs = () => {
           className={`section-tab ${section.id === 2 ? "selected" : ""}`}
           key={section.id}
         >
-          <img src={section.logo} alt="section" />
+          {section.logo}
           <div>{section.title}</div>
         </div>
       ))}

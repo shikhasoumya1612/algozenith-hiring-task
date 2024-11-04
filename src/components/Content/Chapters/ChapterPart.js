@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import Clock from "../../Clock/Clock";
-import gradientChart from "../../../assets/ChartBarOutline.svg";
-import sectionIcon from "../../../assets/DocumentDuplicateOutline.svg";
-import downArrow from "../../../assets/CaratDown.svg";
-import upArrow from "../../../assets/CaratUp.svg";
-import coding from "../../../assets/resource-type/CodeOutline.svg";
-import quiz from "../../../assets/resource-type/QuestionMarkCircleOutline.svg";
-import video from "../../../assets/resource-type/PlayOutline.svg";
-import document from "../../../assets/resource-type/DocumentDuplicateOutline-black.svg";
 
 import "./ChapterPart.css";
+import {
+  CaratDown,
+  CaratUp,
+  ChartBarOutlineGradient,
+  CodeOutline,
+  DocumentDuplicateOutline,
+  DocumentDuplicateOutlineBlack,
+  PlayOutline,
+  QuestionMarkCircleOutline,
+} from "../../../assets/Icons";
 
 const iconType = {
-  QUIZ: quiz,
-  CODING: coding,
-  VIDEO: video,
-  RESOURCE: document,
+  QUIZ: <QuestionMarkCircleOutline />,
+  CODING: <CodeOutline />,
+  VIDEO: <PlayOutline />,
+  RESOURCE: <DocumentDuplicateOutlineBlack />,
 };
 
 const ChapterPart = ({ part }) => {
@@ -44,36 +46,26 @@ const ChapterPart = ({ part }) => {
           </div>
 
           <div className="chapter-part-header-details">
-            <Clock type="GRADIENT" duration={duration} />
+            <div className="chapter-part-header-details-icons">
+              <Clock type="GRADIENT" duration={duration} />
+              <div className="icon-description">
+                <ChartBarOutlineGradient />
 
-            <div className="icon-description">
-              <img
-                src={gradientChart}
-                alt="difficulty"
-                width={"36px"}
-                height={"36px"}
-              />
+                <p>{difficulty}</p>
+              </div>
+              <div className="icon-description">
+                <DocumentDuplicateOutline />
 
-              <p>{difficulty}</p>
+                <p>{part.sections.length}</p>
+              </div>
             </div>
 
-            <div className="icon-description">
-              <img
-                src={sectionIcon}
-                alt="sections"
-                width={"36px"}
-                height={"36px"}
-              />
-
-              <p>{part.sections.length}</p>
-            </div>
-
-            <img
-              src={open ? upArrow : downArrow}
-              alt="open"
+            <div
               onClick={() => setOpen((prev) => !prev)}
               className="toggle-button"
-            />
+            >
+              {open ? <CaratUp /> : <CaratDown />}
+            </div>
           </div>
         </div>
         <div className="chapter-part-header-completed">
@@ -92,12 +84,8 @@ const ChapterPart = ({ part }) => {
               key={section.id}
             >
               <div className="chapter-part-section-title">
-                <img
-                  src={iconType[section.type]}
-                  alt="section-icon"
-                  width="32px"
-                  height="32px"
-                />
+                {iconType[section.type]}
+
                 <p>{section.title}</p>
               </div>
 

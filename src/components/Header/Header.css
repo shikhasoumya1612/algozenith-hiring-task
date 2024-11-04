@@ -5,6 +5,7 @@
 }
 
 .logo-div .hamburger {
+  margin: auto;
   cursor: pointer;
 }
 
@@ -19,7 +20,7 @@
   padding: 0px 12px;
 }
 
-.logo-div img {
+.logo-div .logo {
   margin: auto;
 }
 
@@ -48,4 +49,27 @@
   border-radius: 50%;
   width: 63px;
   height: 63px;
+}
+
+@media (max-width: 768px) {
+  .notification {
+    padding: 2px 8px;
+  }
+
+  .notification svg {
+    width: 16px;
+  }
+
+  .profile {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: #d9d9d9;
+  }
+
+  .profile img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+  }
 }
